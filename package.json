@@ -1,9 +1,9 @@
 {
-  "name": "@krud-dev/ostara-main",
-  "version": "0.9.0",
-  "description": "A visual tool to monitor and interact with Spring Boot applications via Actuator",
-  "private": "true",
-  "keywords": [
+  "name": "@krud-dev/ostara-main",  // 项目名称
+  "version": "0.9.0", // 版本
+  "description": "A visual tool to monitor and interact with Spring Boot applications via Actuator", // 描述
+  "private": "true", // 表明该项目为私有库，npm不会发布它
+  "keywords": [ // 项目关键字
     "spring boot",
     "admin",
     "actuator",
@@ -12,21 +12,21 @@
     "metrics",
     "ostara"
   ],
-  "homepage": "https://github.com/krud-dev/ostara#readme",
-  "bugs": {
+  "homepage": "https://github.com/krud-dev/ostara#readme", // 项目主页
+  "bugs": { // 缺陷主页
     "url": "https://github.com/krud-dev/ostara/issues"
   },
-  "repository": {
+  "repository": { // 仓库主页
     "type": "git",
     "url": "git+https://github.com/krud-dev/ostara.git"
   },
-  "license": "Apache-2.0",
-  "author": {
+  "license": "Apache-2.0", // 许可证
+  "author": { // 作者
     "name": "Krud Dev",
     "email": "admin@krud.dev",
     "url": "https://krud.dev/"
   },
-  "contributors": [
+  "contributors": [ // 项目贡献者
     {
       "name": "Shani Holdengreber",
       "url": "https://github.com/thewizkid87"
@@ -41,10 +41,10 @@
       "url": "https://github.com/idane"
     }
   ],
-  "dependencies": {
-    "@changesets/cli": "^2.26.1"
+  "dependencies": { // 项目依赖
+    "@changesets/cli": "^2.26.1" // 管理当前项目存储库的版本和变更日志
   },
-  "scripts": {
-    "changeset": "changeset"
+  "scripts": { // 脚本，可通过 npm run <script_name> 来执行指定脚本
+    "changeset": "changeset" // 变更发布命令，从 .changset/config.json 读取相关配置，参考：https://www.npmjs.com/package/@changesets/cli
   }
 }

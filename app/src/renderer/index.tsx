@@ -24,4 +24,5 @@ if (window.NODE_ENV !== 'development' && window.configurationStore.isErrorReport
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+// 渲染 App
 root.render(<App />);

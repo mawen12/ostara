@@ -5,6 +5,7 @@ import {
 } from 'renderer/apis/requests/base/useBaseMutation';
 import { Subscriptions } from 'infra/subscriptions/subscriptions';
 
+// 支持泛型的类型
 type Variables<EventKey extends keyof Subscriptions> = {
   event: EventKey;
   listener: Subscriptions[EventKey];

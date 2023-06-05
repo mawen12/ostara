@@ -1,9 +1,10 @@
+// package.json
 {
-  "name": "@krud-dev/boost",
-  "version": "0.9.0",
-  "description": "A visual tool to monitor and interact with Spring Boot applications via Actuator",
-  "private": "true",
-  "keywords": [
+  "name": "@krud-dev/boost", // 项目名称
+  "version": "0.9.0", // 版本
+  "description": "A visual tool to monitor and interact with Spring Boot applications via Actuator", // 描述
+  "private": "true", // 表明项目为私有库，npm不会发布它
+  "keywords": [ // 关键词
     "spring boot",
     "admin",
     "actuator",
@@ -12,21 +13,21 @@
     "metrics",
     "ostara"
   ],
-  "homepage": "https://github.com/krud-dev/ostara#readme",
-  "bugs": {
+  "homepage": "https://github.com/krud-dev/ostara#readme", // 项目主页
+  "bugs": { // 缺陷主页
     "url": "https://github.com/krud-dev/ostara/issues"
   },
-  "repository": {
+  "repository": { // 仓库主页
     "type": "git",
     "url": "git+https://github.com/krud-dev/ostara.git"
   },
-  "license": "Apache-2.0",
-  "author": {
+  "license": "Apache-2.0", // 许可证
+  "author": { // 作者
     "name": "Krud Dev",
     "email": "admin@krud.dev",
     "url": "https://krud.dev/"
   },
-  "contributors": [
+  "contributors": [ // 共享者
     {
       "name": "Shani Holdengreber",
       "url": "https://github.com/thewizkid87"
@@ -41,33 +42,33 @@
       "url": "https://github.com/idane"
     }
   ],
-  "main": "./src/main/main.ts",
-  "scripts": {
-    "jdk:download": "../devops/jdkutil.py clean:jdks download unzip",
-    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\" \"npm run build:daemon\" \"npm run build:demo\"",
-    "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts",
-    "build:renderer": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.prod.ts",
-    "build:daemon": "cd ../daemon && ./gradlew bootJar -Pprod",
-    "build:demo": "cd ../demo && ./gradlew bootJar",
-    "postinstall": "ts-node .erb/scripts/check-native-dep.js && electron-builder install-app-deps && cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.ts",
+  "main": "./src/main/main.ts", // 项目的入口文件
+  "scripts": { // 脚本，可通过 npm run <script_name> 来运行指定脚本
+    "jdk:download": "../devops/jdkutil.py clean:jdks download unzip", // 下载jdk
+    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\" \"npm run build:daemon\" \"npm run build:demo\"", // 构建
+    "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts", // 构建 main
+    "build:renderer": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.prod.ts", // 构建 视图渲染
+    "build:daemon": "cd ../daemon && ./gradlew bootJar -Pprod", // 构建 daemon
+    "build:demo": "cd ../demo && ./gradlew bootJar", // 构建 demo
+    "postinstall": "ts-node .erb/scripts/check-native-dep.js && electron-builder install-app-deps && cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.ts", // 预安装
     "lint": "cross-env NODE_ENV=development eslint . --ext .js,.jsx,.ts,.tsx",
-    "package:dev": "npm run build && electron-builder build --publish never -c.mac.identity=null",
-    "package": "npm run jdk:download && ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
-    "package:all": "npm run jdk:download && ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never -mwl --arm64 --x64",
+    "package:dev": "npm run build && electron-builder build --publish never -c.mac.identity=null", // 打包 dev
+    "package": "npm run jdk:download && ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never", // 打包
+    "package:all": "npm run jdk:download && ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never -mwl --arm64 --x64", // 打包所有
     "prepare": "cd .. && husky install ./app/.husky",
-    "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir release/app",
-    "start": "concurrently \"npm run start:daemon\"  \"ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer\"",
-    "start:thin": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
-    "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only .",
-    "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.preload.dev.ts",
-    "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
-    "start:daemon": "cd ../daemon && ./gradlew bootRun",
-    "start:demo": "cd ../demo && ./gradlew bootRun",
-    "test": "jest",
-    "changeset": "changeset",
-    "release": "changeset version && changeset tag"
+    "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir release/app", // 重新构建
+    "start": "concurrently \"npm run start:daemon\"  \"ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer\"", // 启动
+    "start:thin": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer", // 瘦包启动
+    "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only .", // main启动
+    "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.preload.dev.ts", // 预加载启动
+    "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts", // 视图渲染启动
+    "start:daemon": "cd ../daemon && ./gradlew bootRun", // daemon 启动
+    "start:demo": "cd ../demo && ./gradlew bootRun", // demo 启动
+    "test": "jest", // 测试
+    "changeset": "changeset", // 变更发布命令
+    "release": "changeset version && changeset tag" // 发布命令
   },
-  "lint-staged": {
+  "lint-staged": { // 屏蔽不需要使用git管理的工具
     "*.{js,jsx,ts,tsx}": [
       "cross-env NODE_ENV=development eslint --cache"
     ],
@@ -81,8 +82,8 @@
       "prettier --ignore-path .eslintignore --single-quote --write"
     ]
   },
-  "browserslist": [],
-  "prettier": {
+  "browserslist": [], // 根据设置的目标浏览器环境，来智能添加CSS前缀
+  "prettier": { // 代码格式化配置
     "singleQuote": true,
     "printWidth": 120,
     "overrides": [
@@ -154,11 +155,11 @@
     "copy-to-clipboard": "^3.3.3",
     "cronstrue": "^2.21.0",
     "date-fns": "^2.29.3",
-    "electron-context-menu": "^3.6.1",
-    "electron-debug": "^3.2.0",
+    "electron-context-menu": "^3.6.1", // Electron 应用的上下文菜单
+    "electron-debug": "^3.2.0", // 向 Electron 程序添加调试功能，包含：DevTools、Reload、Element Inspector、Activates DevTools extensions
     "electron-dl": "^3.5.0",
     "electron-log": "^4.4.8",
-    "electron-store": "^8.1.0",
+    "electron-store": "^8.1.0", // Electron 简单数据持久化，保存和加载用户设置、应用程序状态、缓存灯
     "electron-updater": "^5.2.3",
     "elkjs": "^0.8.2",
     "flat": "^5.0.2",
@@ -167,7 +168,7 @@
     "lodash": "^4.17.21",
     "material-ui-popup-state": "^5.0.4",
     "node-cache": "^5.1.2",
-    "node-schedule": "^2.1.0",
+    "node-schedule": "^2.1.0", // 基于时间的作业调度程序
     "notistack": "^2.0.8",
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
@@ -179,18 +180,18 @@
     "react-intl": "^6.2.5",
     "react-markdown": "^8.0.7",
     "react-perfect-scrollbar": "^1.5.8",
-    "react-router-dom": "^6.4.5",
-    "react-scroll": "^1.8.9",
-    "react-use": "^17.4.0",
-    "react-virtualized-auto-sizer": "^1.0.7",
-    "reactflow": "^11.5.6",
-    "reflect-metadata": "^0.1.13",
-    "rehype-raw": "^6.1.1",
-    "remark-gfm": "^3.0.1",
-    "semver": "^7.5.1",
-    "stylis-plugin-rtl": "^2.1.1",
-    "typeorm": "^0.3.11",
-    "uuid": "^9.0.0"
+    "react-router-dom": "^6.4.5", // 
+    "react-scroll": "^1.8.9", // 用于动画垂直滚动的 React 组件
+    "react-use": "^17.4.0", // React Hooks 集合
+    "react-virtualized-auto-sizer": "^1.0.7", // 虚拟化自动调整器
+    "reactflow": "^11.5.6", // 用于构建交互式图形和基于节点的编辑器
+    "reflect-metadata": "^0.1.13", // 元数据反射API
+    "rehype-raw": "^6.1.1", // 解析树和原始节点，保持位置信息正常
+    "remark-gfm": "^3.0.1", // 支持 GFM 的备注插件
+    "semver": "^7.5.1", // 服务器
+    "stylis-plugin-rtl": "^2.1.1", // CSS 的 Stylis RTL 插件
+    "typeorm": "^0.3.11", // ORM 工具
+    "uuid": "^9.0.0" // 生成随机的ID
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
@@ -270,17 +271,19 @@
     "webpack-dev-server": "^4.10.0",
     "webpack-merge": "^5.8.0"
   },
+  // Electron 打包配置
+  // https://blog.csdn.net/qq_41980754/article/details/119902572
   "build": {
-    "productName": "Ostara",
-    "appId": "dev.krud.boost",
-    "asar": true,
-    "asarUnpack": "**\\*.{node,dll}",
+    "productName": "Ostara", // 项目名，也是生成的可执行文件的前缀名
+    "appId": "dev.krud.boost", // 包名
+    "asar": true, // 是否使用 asar 打包
+    "asarUnpack": "**\\*.{node,dll}", // 
     "files": [
       "dist",
       "node_modules",
       "package.json"
     ],
-    "afterSign": ".erb/scripts/notarize.js",
+    "afterSign": ".erb/scripts/notarize.js", 
     "mac": {
       "target": {
         "target": "default",
@@ -295,26 +298,26 @@
       "entitlementsInherit": "assets/entitlements.mac.plist",
       "gatekeeperAssess": false
     },
-    "dmg": {
-      "contents": [
+    "dmg": { // 设置 electron 如何构建 dmg 文件
+      "contents": [ // 自定义图标位置
         {
-          "x": 130,
-          "y": 220
+          "x": 130, // 从窗口左侧到图标中心的与设备无关的像素偏移
+          "y": 220 // 从窗口顶侧到图标中心的与设备无关的像素偏移
         },
         {
           "x": 410,
           "y": 220,
-          "type": "link",
-          "path": "/Applications"
+          "type": "link", // 类型，枚举值：link、file、dir
+          "path": "/Applications" // DMG 中文件的路径
         }
       ]
     },
-    "win": {
+    "win": { // 设置 electron 如何构建 win 文件
       "target": [
         "nsis"
       ]
     },
-    "linux": {
+    "linux": { // 设置 electron 如何构建 linux 文件
       "target": [
         "AppImage"
       ],
@@ -323,9 +326,9 @@
     "directories": {
       "app": "release/app",
       "buildResources": "assets",
-      "output": "release/build"
+      "output": "release/build" // Build 输出文件夹
     },
-    "extraResources": [
+    "extraResources": [ // 拷贝dll等静态文件到指定位置
       "./assets/**",
       {
         "from": "../devops/jdks/${os}/${arch}",
