@@ -10,7 +10,7 @@ import { appUpdaterBridge } from '../infra/autoupdate/renderer';
 import { demoBridge } from '../infra/demo/renderer';
 import { notificationsServiceBridge } from '../infra/notifications/renderer';
 
-contextBridge.exposeInMainWorld('utils', utilsBridge); // 暴露工具
+contextBridge.exposeInMainWorld('utils', utilsBridge); // 向 renderer process 暴露工具
 contextBridge.exposeInMainWorld('subscriptions', subscriptionsBridge); // 暴露订阅
 contextBridge.exposeInMainWorld('ui', uiServiceBridge); // 暴露 UI
 contextBridge.exposeInMainWorld('isElectron', true); // 暴露 Electron
@@ -19,6 +19,6 @@ contextBridge.exposeInMainWorld('daemonWsAddress', daemonWsAddressSupplier()); /
 contextBridge.exposeInMainWorld('daemonHealthy', daemonHealthySupplier); // 暴露 daemon 健康
 contextBridge.exposeInMainWorld('NODE_ENV', process.env.NODE_ENV); // 暴露 NODE 环境变量
 contextBridge.exposeInMainWorld('configurationStore', configurationStoreBridge); // 暴露配置存储
-contextBridge.exposeInMainWorld('appUpdater', appUpdaterBridge); // 暴露应用更新
+contextBridge.exposeInMainWorld('appUpdater', appUpdaterBridge); // 暴露应用更新，来自 infra/authupdate
 contextBridge.exposeInMainWorld('demo', demoBridge); // 暴露 demo
 contextBridge.exposeInMainWorld('notifications', notificationsServiceBridge); // 暴露通知

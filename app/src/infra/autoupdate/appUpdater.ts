@@ -1,3 +1,4 @@
+// 应用更新入口
 import { autoUpdater, UpdateInfo } from 'electron-updater';
 import path from 'path';
 import log from 'electron-log';

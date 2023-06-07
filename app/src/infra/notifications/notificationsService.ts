@@ -6,7 +6,7 @@ import { systemEvents } from '../events';
 import { uiService } from '../ui/uiService';
 import { isWindows } from '../utils/platform';
 
-// 通知服务类
+// 通知服务类，提供消息通知
 class NotificationsService {
   // 私有变量，仅当前类可用
   private window: BrowserWindow | undefined;

@@ -32,3 +32,6 @@ npm-debug.log.*
 
 # SQLite 数据库文件
 database.sqlite
+
+# vscode
+.vscode

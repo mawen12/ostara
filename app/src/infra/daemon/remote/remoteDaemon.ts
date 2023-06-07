@@ -33,10 +33,11 @@ export class RemoteDaemon extends RestHealthCheckingDaemon {
     return this.wsAddress;
   }
 
+  // 监听远程的应用，不支持本地启动
   async start(): Promise<void> {
     log.warn('Daemon is remote, cannot start it');
   }
-
+  // 监听远程的应用，不支持本地启动
   async stop(): Promise<void> {
     log.warn('Daemon is remote, cannot stop it');
   }
