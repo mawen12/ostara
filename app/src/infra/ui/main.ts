@@ -1,6 +1,7 @@
 import { ipcMain } from 'electron';
 import { uiService } from './uiService';
 
+// 接受从 renderer 的调用，并在底层调用 ui服务 
 ipcMain.handle('uiService:getTheme', () => uiService.getElectronTheme());
 ipcMain.handle('uiService:getThemeSource', (event) => uiService.getThemeSource());
 ipcMain.handle('uiService:setThemeSource', (event, themeSource) => uiService.setThemeSource(themeSource));

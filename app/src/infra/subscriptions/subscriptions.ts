@@ -4,6 +4,7 @@ import { UpdateInfo } from 'electron-updater';
 import { ProgressInfo } from 'electron-builder';
 import { NotificationInfo } from '../notifications/models/notificationInfo';
 
+// 定义订阅类型
 export type Subscriptions = {
   'app:themeUpdated': (event: IpcRendererEvent, data: ElectronTheme) => void;
   'app:daemonHealthy': (event: IpcRendererEvent) => void;

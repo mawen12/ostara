@@ -46,32 +46,32 @@ src/infra
 │   ├── models
 │   │   └── notificationInfo.ts     -- 通知消息模型
 │   ├── notificationsService.ts     -- 通知服务类，底层
-│   ├── renderer.ts                 -- 对外提供给 renderer process 调用出发，由 main.ts 处理
+│   ├── renderer.ts                 -- 对外提供给 renderer process 调用，由 main.ts 处理
 │   └── types.d.ts                  -- 类型文件
 ├── rendererUtils
 │   ├── index.ts
-│   ├── main.ts
-│   ├── renderer.ts
+│   ├── main.ts                     -- 接受来自 renderer.ts 的调用
+│   ├── renderer.ts                 -- 对外提供给 renderer process 调用，由 main.ts 处理
 │   └── types.d.ts
 ├── store
 │   ├── index.ts
-│   ├── main.ts
-│   ├── renderer.ts
-│   ├── store.ts
+│   ├── main.ts                     -- 接受来自 renderer.ts 的调用，并调用 store.ts 的方法
+│   ├── renderer.ts                 -- 对外提供给 renderer process 调用，由 main.ts 处理
+│   ├── store.ts                    -- 存储底层实现
 │   └── types.d.ts
-├── subscriptions
-│   ├── renderer.ts
-│   ├── subscriptions.ts
+├── subscriptions               
+│   ├── renderer.ts                 -- 对外提供订阅的功能
+│   ├── subscriptions.ts            -- 定义订阅的结构
 │   └── types.d.ts
 ├── ui
 │   ├── index.ts
-│   ├── main.ts
+│   ├── main.ts                     -- 接受来自 renderer.ts 的调用，并调用 uiService 的方法
 │   ├── models
-│   │   └── electronTheme.ts
-│   ├── renderer.ts
+│   │   └── electronTheme.ts        -- 定义主题域模型
+│   ├── renderer.ts                 -- 对外提供给 renderer process 调用，由 main.ts 处理
 │   ├── types.d.ts
-│   └── uiService.ts
+│   └── uiService.ts                -- UI服务底层实现类
 └── utils
-    └── platform.ts
+    └── platform.ts                 -- 平台识别工具类
 
 ```

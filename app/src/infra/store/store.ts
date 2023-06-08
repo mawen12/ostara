@@ -1,6 +1,6 @@
 import ElectronStore from 'electron-store';
 
-// 
+// 存储底层结构
 export const defaults = {
   /**
    * Whether Sentry error reporting is enabled or not.
@@ -21,6 +21,7 @@ export const defaults = {
 // 参考：https://stackoverflow.com/questions/44884838/what-is-const-type-pattern-in-typescript
 export type Configuration = typeof defaults;
 
+// 存储操作入口
 export const configurationStore = new ElectronStore<Configuration>({
   name: 'boost_configuration',
   defaults,

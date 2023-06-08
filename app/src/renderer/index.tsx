@@ -22,6 +22,7 @@ if (window.NODE_ENV !== 'development' && window.configurationStore.isErrorReport
   Sentry.setTag('service.type', 'electron.renderer');
 }
 
+// 应用的唯一顶部根节点 FiberRootNode
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 // 渲染 App

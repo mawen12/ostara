@@ -1,6 +1,7 @@
 import { ipcMain } from 'electron';
 import { configurationStore } from './store';
 
+// 接受由 renderer.ts 发起的调用，执行对应的方法
 ipcMain.on('configurationStore:get', (event, key) => {
   event.returnValue = configurationStore.get(key);
 });

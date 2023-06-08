@@ -24,12 +24,13 @@ export default function App() {
   // 创建查询客户端
   const queryClient = useCreateQueryClient();
 
+  // App 节点下的原生组件（具体的值）
   return (
     // 创建内存路由器，使用内存来存储history，用于在移动端、客户端等不使用url直接访问指定页面的情况
     // 参考：https://blog.csdn.net/sinat_38783046/article/details/120790439
     <MemoryRouter>
       {/**
-        *  连接并并提供一个 QueryClient 到应用程序中
+        *  连接并提供一个 QueryClient 到应用程序中
         */}
       <QueryClientProvider client={queryClient}>
         {/**

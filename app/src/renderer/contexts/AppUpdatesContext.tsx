@@ -146,7 +146,7 @@ const AppUpdatesProvider: FunctionComponent<AppUpdatesProviderProps> = ({ childr
 
 const useAppUpdates = (): AppUpdatesContextProps => {
   const context = useContext(AppUpdatesContext);
-
+  // 如果上下文不存在，则报错
   if (!context) throw new Error('AppUpdatesContext must be used inside AppUpdatesProvider');
 
   return context;

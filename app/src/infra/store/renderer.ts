@@ -1,6 +1,7 @@
 import { ipcRenderer } from 'electron';
 import { Configuration } from './store';
 
+// 对外提供支持泛型的操作存储方法
 export const configurationStoreBridge: ConfigurationBridge<keyof Configuration> = {
   get<T>(key: string): T {
     return ipcRenderer.sendSync('configurationStore:get', key);
