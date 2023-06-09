@@ -30,27 +30,36 @@ export default function App() {
     // 参考：https://blog.csdn.net/sinat_38783046/article/details/120790439
     <MemoryRouter>
       {/**
-        *  连接并提供一个 QueryClient 到应用程序中
+        *  连接并提供一个 QueryClient 到应用程序中，允许子组件使用 queryClient 执行请求
         */}
       <QueryClientProvider client={queryClient}>
         {/**
-         * 
+         * 订阅服务
          */}
         <StompProvider>
-          {/**
-            * 
-            */}
+          /**
+            * 项目配置服务
+            */
           <SettingsProvider>
-            {/**
-              * 
-              */}
+            /**
+              * 消费项目配置项
+              */
             <SettingsContext.Consumer>
-              {/**
+              /**
                 * 
-                */}
+                */
               {({ darkMode, localeInfo }) => (
+                /**
+                  * 应用更新服务
+                  */
                 <AppUpdatesProvider>
+                  {/**
+                    * 日志采集服务
+                    */}
                   <AnalyticsProvider>
+                    {/**
+                      * 
+                      */}
                     <IntlProvider
                       locale={localeInfo.locale}
                       messages={localeInfo.messages}
@@ -68,6 +77,7 @@ export default function App() {
                           isRtl={localeInfo.direction === 'rtl'}
                           localization={localeInfo.materialUiLocalization}
                         >
+                          
                           <ItemsProvider>
                             <NotistackProvider>
                               <NiceModal.Provider>

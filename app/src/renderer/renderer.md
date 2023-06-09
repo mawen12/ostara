@@ -344,12 +344,12 @@
 │   ├── ids.ts
 │   ├── regex.ts
 │   └── ui.ts
-├── contexts
-│   ├── AnalyticsContext.tsx
-│   ├── AppUpdatesContext.tsx
-│   ├── ItemsContext.tsx
-│   ├── NavigatorTreeContext.tsx
-│   └── SettingsContext.tsx
+├── contexts                        -- 需要在项目中共享的组件
+│   ├── AnalyticsContext.tsx        -- 日志记录组件
+│   ├── AppUpdatesContext.tsx       -- 应用更新组件
+│   ├── ItemsContext.tsx            -- 
+│   ├── NavigatorTreeContext.tsx    --
+│   └── SettingsContext.tsx         -- 项目配置组件
 ├── definitions
 │   └── daemon.d.ts
 ├── entity

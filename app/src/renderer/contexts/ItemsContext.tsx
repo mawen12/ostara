@@ -23,26 +23,32 @@ import { applicationCrudEntity } from '../apis/requests/crud/entity/entities/app
 import { useStomp } from '../apis/websockets/StompContext';
 import { isApplication, isFolder, isInstance } from '../utils/itemUtils';
 
+// 定义左侧列表项上下文属性
 export type ItemsContextProps = {
-  folders: FolderRO[] | undefined;
-  applications: ApplicationRO[] | undefined;
-  instances: InstanceRO[] | undefined;
-  items: ItemRO[] | undefined;
-  addItem: (item: ItemRO) => void;
-  getItem: (id: string) => ItemRO | undefined;
+  folders: FolderRO[] | undefined; // 文件夹数组
+  applications: ApplicationRO[] | undefined; // 应用数组
+  instances: InstanceRO[] | undefined; // 实例数组
+  items: ItemRO[] | undefined;  // 列表项数组
+  addItem: (item: ItemRO) => void; // 添加项的方法
+  getItem: (id: string) => ItemRO | undefined; // 获取项的方法
 };
 
+// 常见需要共享的列表项上下文
 const ItemsContext = React.createContext<ItemsContextProps>(undefined!);
 
 interface ItemsProviderProps extends PropsWithChildren<any> {}
 
+// 函数组件
 const ItemsProvider: FunctionComponent<ItemsProviderProps> = ({ children }) => {
+  // 订阅组件的订阅方法
   const { subscribe } = useStomp();
-
+  // state: 文件夹数组
   const [folders, setFolders] = useState<FolderRO[] | undefined>(undefined);
+  // state: 应用数组
   const [applications, setApplications] = useState<ApplicationRO[] | undefined>(undefined);
+  // state: 实例数组
   const [instances, setInstances] = useState<InstanceRO[] | undefined>(undefined);
-
+  
   const searchFolderState = useCrudSearchQuery<FolderRO>({ entity: folderCrudEntity });
   const searchApplicationState = useCrudSearchQuery<ApplicationRO>({ entity: applicationCrudEntity });
   const searchInstanceState = useCrudSearchQuery<InstanceRO>({ entity: instanceCrudEntity });

@@ -3,8 +3,10 @@ import { BaseMutationOptions, BaseUseMutationResult, useBaseMutation } from '../
 import { CrudEntity } from '../entity/entity';
 import { crudKeys } from '../crudKeys';
 
+// 定义对象 Crud 变量
 export type CrudVariables = { entity: CrudEntity };
 
+// 定义对象，使用 BaseMutationOptions 的属性，并忽略 invalidateQueriesKeyFn 属性
 export type CrudMutationOptions<Data, Variables extends CrudVariables> = Omit<
   BaseMutationOptions<Data, Variables>,
   'invalidateQueriesKeyFn'

@@ -182,7 +182,7 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^6.4.5", // 
     "react-scroll": "^1.8.9", // 用于动画垂直滚动的 React 组件
-    "react-use": "^17.4.0", // React Hooks 集合
+    "react-use": "^17.4.0", // React Hooks 集合 https://github.com/streamich/react-use
     "react-virtualized-auto-sizer": "^1.0.7", // 虚拟化自动调整器
     "reactflow": "^11.5.6", // 用于构建交互式图形和基于节点的编辑器
     "reflect-metadata": "^0.1.13", // 元数据反射API

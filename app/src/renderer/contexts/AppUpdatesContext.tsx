@@ -127,6 +127,7 @@ const AppUpdatesProvider: FunctionComponent<AppUpdatesProviderProps> = ({ childr
   }, [autoUpdateSupported]);
 
   return (
+    // 向子组件共享应用更新信息项，并将子组件嵌套
     <AppUpdatesContext.Provider
       value={{
         autoUpdateSupported,
@@ -144,6 +145,7 @@ const AppUpdatesProvider: FunctionComponent<AppUpdatesProviderProps> = ({ childr
   );
 };
 
+// 提供获取应用更新的上下文
 const useAppUpdates = (): AppUpdatesContextProps => {
   const context = useContext(AppUpdatesContext);
   // 如果上下文不存在，则报错
