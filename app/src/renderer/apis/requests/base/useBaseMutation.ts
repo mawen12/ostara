@@ -18,7 +18,7 @@ export type BaseOptions<Data, Variables> = Omit<UseMutationOptions<Data, unknown
 // 定义突变结果基类
 export type BaseUseMutationResult<Data, Variables> = UseMutationResult<Data, unknown, Variables>;
 
-// 
+
 export const useBaseMutation = <Data, Variables>(
   mutationFn: MutationFunction<Data, Variables>,
   options?: BaseMutationOptions<Data, Variables>

@@ -2,6 +2,7 @@ import { Entity } from 'renderer/entity/entity';
 import { EnrichedLiquibaseChangeSet } from 'renderer/apis/requests/instance/liquibase/getInstanceLiquibaseChangesets';
 import LiquibaseChangesetDetails from 'renderer/pages/navigator/instance/liquibase/components/LiquibaseChangesetDetails';
 
+
 export const instanceLiquibaseChangeSetEntity: Entity<EnrichedLiquibaseChangeSet> = {
   id: 'instanceLiquibaseChangeSet',
   columns: [

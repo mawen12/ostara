@@ -1,6 +1,7 @@
 import { Entity } from 'renderer/entity/entity';
 import { ScheduledTasksActuatorResponse$Custom } from '../../../common/generated_definitions';
 
+// 实例调度任务Custom实例，映射 Spring 中自定义的调度任务
 export const instanceScheduledTasksCustomEntity: Entity<ScheduledTasksActuatorResponse$Custom> = {
   id: 'instanceScheduledTasksCustom',
   columns: [

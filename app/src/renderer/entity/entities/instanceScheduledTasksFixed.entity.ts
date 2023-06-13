@@ -1,6 +1,7 @@
 import { Entity } from 'renderer/entity/entity';
 import { ScheduledTasksActuatorResponse$FixedDelayOrRate } from '../../../common/generated_definitions';
 
+// 实例调度任务固定周期实体
 export const instanceScheduledTasksFixedEntity: Entity<ScheduledTasksActuatorResponse$FixedDelayOrRate> = {
   id: 'instanceScheduledTasksFixed',
   columns: [
@@ -10,11 +11,13 @@ export const instanceScheduledTasksFixedEntity: Entity<ScheduledTasksActuatorRes
       labelId: 'target',
       width: '100%',
     },
+    // 延迟开始
     {
       id: 'initialDelay',
       type: 'Interval',
       labelId: 'initialDelay',
     },
+    // 间隔
     {
       id: 'interval',
       type: 'Interval',

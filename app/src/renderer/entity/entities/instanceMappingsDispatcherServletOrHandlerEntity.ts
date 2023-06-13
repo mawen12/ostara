@@ -1,30 +1,36 @@
 import { Entity } from 'renderer/entity/entity';
 import { EnrichedMappingsDispatcherServletOrHandler } from '../../apis/requests/instance/mappings/getInstanceMappingsDispatcherServlets';
 
+// 实例映射 Mappings Dispatcher Servlets 实体，映射 Spring Dispatcher Servlets 
 export const instanceMappingsDispatcherServletOrHandlerEntity: Entity<EnrichedMappingsDispatcherServletOrHandler> = {
   id: 'instanceMappingsDispatcherServletOrHandler',
   columns: [
+    // url
     {
       id: 'url',
       type: 'Text',
       labelId: 'url',
     },
+    // 请求方法
     {
       id: 'method',
       type: 'Text',
       labelId: 'method',
       width: 100,
     },
+    // 生产
     {
       id: 'produce',
       type: 'Text',
       labelId: 'produce',
     },
+    // 处理器
     {
       id: 'handler',
       type: 'Text',
       labelId: 'handler',
     },
+    // 内容
     {
       id: 'context',
       type: 'Text',

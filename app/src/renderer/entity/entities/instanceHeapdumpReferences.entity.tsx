@@ -5,14 +5,18 @@ import { EnrichedInstanceHeapdumpReferenceRO } from '../../apis/requests/instanc
 import { formatBytes } from '../../utils/formatUtils';
 import { isNumber } from 'lodash';
 
+// 实例堆转存引用实体
 export const instanceHeapdumpReferencesEntity: Entity<EnrichedInstanceHeapdumpReferenceRO> = {
   id: 'instanceHeapdumpReference',
+  // 展示列
   columns: [
+    // 创建时间
     {
       id: 'creationTime',
       type: 'Date',
       labelId: 'requestTime',
     },
+    // 状态
     {
       id: 'status',
       type: 'Label',
@@ -47,6 +51,7 @@ export const instanceHeapdumpReferencesEntity: Entity<EnrichedInstanceHeapdumpRe
         }
       },
     },
+    // 文件大小
     {
       id: 'size',
       type: 'CustomText',
@@ -67,7 +72,9 @@ export const instanceHeapdumpReferencesEntity: Entity<EnrichedInstanceHeapdumpRe
       },
     },
   ],
+  // 操作
   actions: [
+    // 下载文件
     {
       id: DOWNLOAD_ID,
       labelId: 'download',
@@ -79,6 +86,7 @@ export const instanceHeapdumpReferencesEntity: Entity<EnrichedInstanceHeapdumpRe
         return false;
       },
     },
+    // 删除文件
     {
       id: DELETE_ID,
       labelId: 'delete',
@@ -87,20 +95,26 @@ export const instanceHeapdumpReferencesEntity: Entity<EnrichedInstanceHeapdumpRe
     },
   ],
   massActions: [],
+  // 全局操作
   globalActions: [
+    // 堆转存
     {
       id: REQUEST_ID,
       labelId: 'requestHeapdump',
       icon: 'BrowserUpdatedOutlined',
     },
   ],
+  // 顺序
   defaultOrder: [
+    // 创建时间倒序
     {
       id: 'creationTime',
       direction: 'desc',
     },
   ],
+  // 分页
   paging: true,
   getId: (item) => item.id,
+  // 数据过滤
   filterData: (data, filter) => data.filter((item) => item.status?.toLowerCase().includes(filter.toLowerCase())),
 };

@@ -4,6 +4,7 @@ import { EnrichedTogglzFeature } from '../../apis/requests/instance/togglz/getIn
 import { DISABLE_ID, ENABLE_ID } from '../actions';
 import TogglzDetails from '../../pages/navigator/instance/togglz/components/TogglzDetails';
 
+// 实例开关实体
 export const instanceTogglzEntity: Entity<EnrichedTogglzFeature> = {
   id: 'instanceTogglz',
   columns: [

@@ -2,9 +2,13 @@ import { Entity } from 'renderer/entity/entity';
 import { EnvProperty } from 'renderer/apis/requests/instance/env/getInstanceEnvProperties';
 import { COPY_ID } from 'renderer/entity/actions';
 
+// 实例环境实体，映射 Spring Environment
 export const instanceEnvEntity: Entity<EnvProperty> = {
+  // id
   id: 'instanceEnv',
+  // 展示列
   columns: [
+    // 键
     {
       id: 'name',
       type: 'Text',
@@ -12,6 +16,7 @@ export const instanceEnvEntity: Entity<EnvProperty> = {
       width: 300,
       getTooltip: (item) => item.origin,
     },
+    // 值
     {
       id: 'value',
       type: 'Text',
@@ -19,7 +24,9 @@ export const instanceEnvEntity: Entity<EnvProperty> = {
       width: 300,
     },
   ],
+  // 操作
   actions: [
+    // 复制
     {
       id: COPY_ID,
       labelId: 'copy',
@@ -34,14 +41,18 @@ export const instanceEnvEntity: Entity<EnvProperty> = {
     },
   ],
   globalActions: [],
+  // 排序
   defaultOrder: [
+    // 名称正序
     {
       id: 'name',
       direction: 'asc',
     },
   ],
+  // 分页
   paging: false,
   getId: (item) => `${item.name}-${item.source}`,
+  // 数据过滤
   filterData: (data, filter) =>
     data.filter(
       (item) =>

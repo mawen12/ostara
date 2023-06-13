@@ -2,6 +2,7 @@ import { Entity } from 'renderer/entity/entity';
 import { COPY_ID } from 'renderer/entity/actions';
 import { SystemProperty } from '../../apis/requests/instance/env/getInstanceSystemProperties';
 
+// 实例系统属性实体，反应启动应用时所使用的系统属性
 export const instanceSystemPropertyEntity: Entity<SystemProperty> = {
   id: 'instanceSystemProperty',
   columns: [

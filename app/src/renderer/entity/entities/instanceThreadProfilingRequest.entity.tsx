@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { EnrichedThreadProfilingRequestRO } from '../../apis/requests/instance/thread-profiling/getInstanceThreadProfilingRequests';
 import { isNil } from 'lodash';
 
+// 实例线程分析请求实例，可用于对当前线程进行分析，并生成分析文件，默认是执行60s
 export const instanceThreadProfilingRequestEntity: Entity<EnrichedThreadProfilingRequestRO> = {
   id: 'instanceThreadProfilingRequest',
   columns: [

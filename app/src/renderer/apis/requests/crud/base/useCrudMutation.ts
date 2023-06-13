@@ -12,6 +12,7 @@ export type CrudMutationOptions<Data, Variables extends CrudVariables> = Omit<
   'invalidateQueriesKeyFn'
 >;
 
+// 定义用于Curd的变化对象结果
 export type CrudUseMutationResult<Data, Variables extends CrudVariables> = BaseUseMutationResult<Data, Variables>;
 
 export const useCrudMutation = <Data, Variables extends CrudVariables>(

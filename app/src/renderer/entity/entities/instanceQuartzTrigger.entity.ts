@@ -2,6 +2,7 @@ import { Entity } from 'renderer/entity/entity';
 import { EnrichedQuartzTrigger } from '../../apis/requests/instance/quartz/getInstanceQuartzTriggers';
 import QuartzTriggerDetails from '../../pages/navigator/instance/quartz/components/QuartzTriggerDetails';
 
+// 实例 Quartz Trigger 实体，映射 Spring Quartz Trigger
 export const instanceQuartzTriggerEntity: Entity<EnrichedQuartzTrigger> = {
   id: 'instanceQuartzTrigger',
   columns: [

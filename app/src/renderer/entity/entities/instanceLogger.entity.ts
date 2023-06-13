@@ -7,15 +7,18 @@ import LoggerCustomFiltersComponent, {
   LoggerCustomFilters,
 } from 'renderer/components/item/logger/LoggerCustomFiltersComponent';
 
+// 实例日志实体
 export const instanceLoggerEntity: Entity<EnrichedInstanceLoggerRO, LoggerCustomFilters> = {
   id: 'instanceCache',
   columns: [
+    // 名称
     {
       id: 'name',
       type: 'Text',
       labelId: 'name',
       width: '100%',
     },
+    // 日志级别
     {
       id: 'effectiveLevel',
       type: 'Custom',
@@ -25,6 +28,7 @@ export const instanceLoggerEntity: Entity<EnrichedInstanceLoggerRO, LoggerCustom
     },
   ],
   actions: [
+    // 恢复原装
     {
       id: RESET_ID,
       labelId: 'reset',
@@ -42,6 +46,7 @@ export const instanceLoggerEntity: Entity<EnrichedInstanceLoggerRO, LoggerCustom
   ],
   paging: true,
   getId: (item) => item.name,
+  // 数据过滤
   filterData: (data, filter, customFilters) =>
     data.filter(
       (item) =>
