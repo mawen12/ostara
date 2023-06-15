@@ -2,6 +2,7 @@ type ErrorWithMessage = {
   message: string;
 };
 
+// 是否为错误信息
 export const isErrorWithMessage = (error: unknown): error is ErrorWithMessage => {
   return (
     typeof error === 'object' &&
@@ -11,6 +12,7 @@ export const isErrorWithMessage = (error: unknown): error is ErrorWithMessage =>
   );
 };
 
+// 转换为错误信息
 export const toErrorWithMessage = (maybeError: unknown): ErrorWithMessage => {
   if (isErrorWithMessage(maybeError)) return maybeError;
 
@@ -23,6 +25,7 @@ export const toErrorWithMessage = (maybeError: unknown): ErrorWithMessage => {
   }
 };
 
+// 返回错误信息
 export const getErrorMessage = (error: unknown): string => {
   return toErrorWithMessage(error).message;
 };

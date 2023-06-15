@@ -7,6 +7,7 @@ type StopDemoResult = {
   loading: boolean;
 };
 
+// 停止 Demo
 const useStopDemo = (): StopDemoResult => {
   const { track } = useAnalytics();
 

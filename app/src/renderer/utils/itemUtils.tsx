@@ -37,6 +37,8 @@ export const getItemType = (item: ItemRO): ItemType => {
   throw new Error(`Unknown item type`);
 };
 
+// 获取展示名称的逻辑
+// 应用和文件展示别名，实例，别名 > 主机名 > 监听路径
 export const getItemDisplayName = (item: ItemRO): string => {
   if (isApplication(item)) {
     return item.alias;

@@ -3,6 +3,7 @@ import { useSnackbar } from 'notistack';
 import copy from 'copy-to-clipboard';
 import { FormattedMessage } from 'react-intl';
 
+// 将文本添加到剪切板
 const useCopyToClipboard = (): ((stringToCopy: string) => Promise<void>) => {
   const { enqueueSnackbar } = useSnackbar();
 

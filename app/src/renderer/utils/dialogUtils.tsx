@@ -9,6 +9,7 @@ import { ApplicationRO, FolderRO, InstanceRO } from '../../common/generated_defi
 import { ItemRO } from '../definitions/daemon';
 import { getItemDisplayName, getItemType } from './itemUtils';
 
+// 删除确认弹框
 export const showDeleteConfirmationDialog = async (items: ItemRO | ItemRO[]): Promise<boolean> => {
   const itemsName = isArray(items) ? items.map((i) => getItemDisplayName(i)).join(', ') : getItemDisplayName(items);
   return await NiceModal.show<boolean>(ConfirmationDialog, {
@@ -18,6 +19,7 @@ export const showDeleteConfirmationDialog = async (items: ItemRO | ItemRO[]): Pr
     continueColor: 'error',
   });
 };
+// 更新元素弹框
 export const showUpdateItemDialog = async (item: ItemRO): Promise<ItemRO | undefined> => {
   switch (getItemType(item)) {
     case 'folder':

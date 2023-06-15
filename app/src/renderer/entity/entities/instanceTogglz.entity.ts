@@ -29,7 +29,9 @@ export const instanceTogglzEntity: Entity<EnrichedTogglzFeature> = {
   actions: [],
   massActions: [],
   globalActions: [
+    // 全部禁用
     { id: DISABLE_ID, labelId: 'disableAll', icon: 'ToggleOffOutlined' },
+    // 全部打开
     { id: ENABLE_ID, labelId: 'enableAll', icon: 'ToggleOnOutlined' },
   ],
   rowAction: {

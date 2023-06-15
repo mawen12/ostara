@@ -1,3 +1,4 @@
+// 判断是否为合法的类名
 export const isClassName = (className: string): boolean => {
   const split = className.split('.');
   if (split.length < 2) {

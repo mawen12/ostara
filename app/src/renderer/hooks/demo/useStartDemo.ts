@@ -14,6 +14,7 @@ type StartDemoResult = {
   loading: boolean;
 };
 
+// 启动 Demo
 const useStartDemo = (): StartDemoResult => {
   const { addItem } = useItems();
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const useStartDemo = (): StartDemoResult => {
 
   const searchInstanceState = useCrudSearch<InstanceRO>({ cacheTime: 0 });
 
+  // 获取 Demo 实例
   const getDemoInstance = useCallback(async (): Promise<InstanceRO | undefined> => {
     try {
       const demoInstancesResult = await searchInstanceState.mutateAsync({
@@ -38,6 +40,7 @@ const useStartDemo = (): StartDemoResult => {
 
   const createDemoState = useCreateDemo();
 
+  // 启动 Demo
   const startDemo = useCallback(async (): Promise<void> => {
     track({ name: 'demo_start' });
 

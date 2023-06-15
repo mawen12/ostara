@@ -6,6 +6,7 @@ type RestartDemoResult = {
   loading: boolean;
 };
 
+// 重启 demo 
 const useRestartDemo = (): RestartDemoResult => {
   const { track } = useAnalytics();
 

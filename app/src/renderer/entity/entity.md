@@ -17,22 +17,22 @@ src/renderer/entity/
 │   ├── instanceCache.entity.tsx                -- 应用实例缓存，Endpoint /caches
 │   ├── instanceEnv.entity.ts                   -- 应用实例环境，Endpoint /env
 │   ├── instanceFlywayMigration.entity.ts       -- 实例Flyway集成，Endpoint /flyway 存在且可访问
-│   ├── instanceHeapdumpReferences.entity.tsx   
-│   ├── instanceHttpRequest.entity.ts
+│   ├── instanceHeapdumpReferences.entity.tsx   -- Endpoint /threaddump 存在且可访问 
+│   ├── instanceHttpRequest.entity.ts           
 │   ├── instanceLiquibaseChangeSetEntity.ts
-│   ├── instanceLogger.entity.ts
+│   ├── instanceLogger.entity.ts                -- Endpoint /loggers 存在且可访问
 │   ├── instanceMappingsDispatcherServletOrHandlerEntity.ts
-│   ├── instanceMappingsServletEntity.ts
+│   ├── instanceMappingsServletEntity.ts     
 │   ├── instanceMappingsServletFilterEntity.ts
-│   ├── instanceMetric.entity.ts               -- 应用
-│   ├── instanceQuartzJob.entity.ts
+│   ├── instanceMetric.entity.ts                -- Endpoint /metrics 存在且可访问 
+│   ├── instanceQuartzJob.entity.ts             -- Endpoint /quartz 存在且可访问
 │   ├── instanceQuartzTrigger.entity.ts
-│   ├── instanceScheduledTasksCron.entity.ts
-│   ├── instanceScheduledTasksCustom.entity.ts
+│   ├── instanceScheduledTasksCron.entity.ts    -- Endpoint /shcedulexdtasks 存在且可访问
+│   ├── instanceScheduledTasksCustom.entity.ts  
 │   ├── instanceScheduledTasksFixed.entity.ts
-│   ├── instanceSystemEnvironment.entity.ts
-│   ├── instanceSystemProperty.entity.ts
-│   ├── instanceThreadProfilingRequest.entity.tsx
+│   ├── instanceSystemEnvironment.entity.ts     -- Endpoint /env 存在且可访问
+│   ├── instanceSystemProperty.entity.ts        -- Endpoint /env 存在且可访问
+│   ├── instanceThreadProfilingRequest.entity.tsx -- Endpoint / threaddump 存在且可访问
 │   └── instanceTogglz.entity.ts
 ├── entity.d.ts     -- 实体类型定义
 └── entity.md       -- 文档

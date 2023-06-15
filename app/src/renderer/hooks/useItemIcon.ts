@@ -5,6 +5,7 @@ import { ItemRO } from '../definitions/daemon';
 
 export const DEFAULT_ICON_VALUE = 'default';
 
+// 获取元素的图标
 const useItemIcon = (item: ItemRO): MUIconType => {
   const typeIcon = useMemo<MUIconType>(() => getItemTypeIcon(getItemType(item)), [item]);
   return useMemo<MUIconType>(() => {
