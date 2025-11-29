@@ -310,6 +310,7 @@ function TableProvider<EntityItem, CustomFilters>({
       rows: filteredTableData,
       displayRows: displayTableData,
       refreshHandler,
+      // 勾选
       selectedRows,
       hasSelectedRows,
       selectRowHandler,
@@ -317,25 +318,31 @@ function TableProvider<EntityItem, CustomFilters>({
       selectAllIndeterminate,
       selectAllChecked,
       selectAllRowsHandler,
+      // 打开
       openRows,
       toggleRowOpenHandler,
       closeAllRowsHandler,
       isRowOpen,
+      // 加载/空数据
       loading,
       empty,
       emptyContent,
+      // 分页
       page,
       changePageHandler,
       rowsPerPage,
       changeRowsPerPageHandler,
+      // 过滤
       filter,
       changeFilterHandler,
       customFilters,
       changeCustomFiltersHandler,
       clearFiltersHandler,
+      // 排序
       orderColumn,
       orderDirection,
       changeOrderHandler,
+      // 操作
       hasActions,
       hasMassActions,
       hasGlobalActions,

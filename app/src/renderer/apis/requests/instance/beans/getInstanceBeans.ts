@@ -22,6 +22,7 @@ type Variables = {
 
 type Data = InstanceBean[];
 
+// ActuatorController#beans
 export const getInstanceBeans = async (variables: Variables): Promise<Data> => {
   const result = (
     await axiosInstance.get<BeansActuatorResponse, AxiosResponse<BeansActuatorResponse>>(
