@@ -1,6 +1,6 @@
 # App Architecture
 
-# App.tsx
+## App.tsx
 
 在入口的 `App.tsx` 中定义了项目的结构。
 

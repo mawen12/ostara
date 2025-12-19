@@ -24,7 +24,9 @@ class InstanceMetricWebsocketTopicInterceptor(
     private val instanceHealthService: InstanceHealthService,
     private val metricManager: MetricManager
 ) : ChannelInterceptor {
+    // sessionId -> set of topic
     private val subscriptions = ConcurrentHashMap<String, Set<String>>()
+    // topic -> metric.value
     private val previousValueCache = ConcurrentHashMap<String, InstanceMetricValueRO>()
 
     override fun preSend(message: Message<*>, channel: MessageChannel): Message<*>? {
